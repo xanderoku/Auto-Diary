@@ -17,6 +17,7 @@ export default function AddService() {
   })
 
   const transRef = useRef()
+  
   const transitions = useTransition(open ? data : [], item => item.name, {
     ref: transRef,
     unique: true,
@@ -28,14 +29,16 @@ export default function AddService() {
 
   // This will orchestrate the two animations above, comment the last arg and it creates a sequence
   useChain(open ? [springRef, transRef] : [transRef, springRef], [0, open ? 0.1 : 0.6])
-
+  // console.log('trans: ', transitions);
+  // console.log(transitions[0]);
+  
   return (
     <>
       <Global />
       <Container style={{ ...rest, width: size, height: size }} onClick={() => set(open => !open)}>
-        {transitions.map(({ item, key, props }) => (
-          <Item key={key} style={{ ...props, background: item.css }}><img src={item.image} alt="CAR"/></Item>
-        ))}
+        {transitions ? transitions.map(({ item, index, props }) => {
+         return  <Item key={item.ind} style={{ ...props, background: item.css }}> <img src={`images/${item.img}`} alt="CAR"/></Item>
+        }) : ''}
       </Container>
     </>
   )
