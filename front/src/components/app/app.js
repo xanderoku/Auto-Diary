@@ -7,6 +7,9 @@ import Dairy from '../dairy';
 import Statistics from '../statistics';
 import Profile from '../profile';
 
+import CarCard from '../xander/CarCard'
+import AddService from '../xander/add-service/AddService';
+
 export default class App extends Component {
     state = {
         name: 'Service Book'
@@ -14,14 +17,17 @@ export default class App extends Component {
      render() {
     return (
         <>
-            Welcome to {this.state.name}
+            {/* Welcome to {this.state.name} */}
             <BrowserRouter>
-                        <Navbar />
+                        {/* <Navbar /> */}
                         <Route exact path='/' component={Profile} />
                         <Route path='/dairy' component={Dairy} />
                         <Route path='/statistics' component={Statistics} />
                         <Route path='/carone' component={CarOne} />
                         <Route path='/cars' component={Cars} />
+                        <Route path='/test' component={CarCard} />
+                        <Route path='/test2' component={AddService} />
+
                 </BrowserRouter>
         </>
     )
