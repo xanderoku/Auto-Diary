@@ -10,3 +10,11 @@ export const fetchRcvd = (text) => {
         payload: text
     }
 }
+
+export const getModels = models => {
+    console.log('action models: ', models)
+    return {
+        type: 'GET_MODELS',
+        payload: models
+    }
+}

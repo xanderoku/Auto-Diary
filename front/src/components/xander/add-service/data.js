@@ -1,6 +1,3 @@
-import Dodge from "./dodge.png";
-// import Volks from './vw.png';
-
 import dataN from "./cars.json";
 
 for (let b of dataN) {
@@ -9,8 +6,6 @@ for (let b of dataN) {
   b.css = "linear-gradient(135deg, white 0%, white 100%)";
   b.height = 200;
 }
-
-// console.log(dataN)
 
 export default dataN;
 

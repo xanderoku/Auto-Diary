@@ -1,18 +1,19 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef } from 'react';
+import { connect } from 'react-redux';
 import { useTransition, useSpring, useChain, config } from 'react-spring'
 import { Global, Container, Item } from './styles'
 import data from './data'
-import './add-service.css'
-// import Logo from './dodge.png'
+import { getModels } from '../../../redux/actions';
+import './add-service.css';
 
-export default function AddService() {
+function AddCarBrand(props) {
   const [open, set] = useState(false)
 
   const springRef = useRef()
   const { size, opacity, ...rest } = useSpring({
     ref: springRef,
     config: config.stiff,
-    from: { size: '20%', background: '#e50914' },
+    from: { size: '10%', background: '#e50914' },
     to: { size: open ? '100%' : '20%', background: open ? 'black' : '#e50914' }
   })
 
@@ -29,17 +30,22 @@ export default function AddService() {
 
   // This will orchestrate the two animations above, comment the last arg and it creates a sequence
   useChain(open ? [springRef, transRef] : [transRef, springRef], [0, open ? 0.1 : 0.6])
-  // console.log('trans: ', transitions);
-  // console.log(transitions[0]);
-  
+
+  const gm = (e) => {
+    props.getModels(e.target.getAttribute('models'))
+  }
+
   return (
     <>
       <Global />
       <Container style={{ ...rest, width: size, height: size }} onClick={() => set(open => !open)}>
         {transitions ? transitions.map(({ item, index, props }) => {
-         return  <Item key={item.ind} style={{ ...props, background: item.css }}> <img src={`images/${item.img}`} alt="CAR"/></Item>
+          
+         return  <Item onClick={ gm } brand={item.brand} models={item.models} key={item.ind} style={{ ...props, background: item.css }}> <img src={`images/${item.img}`} alt="CAR"/></Item>
         }) : ''}
       </Container>
     </>
   )
 }
+
+export default connect(null, { getModels } )(AddCarBrand) 

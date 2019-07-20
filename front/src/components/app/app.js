@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from '../navbar';
+// import Navbar from '../navbar';
 import CarOne from '../carOne';
 import Cars from '../cars';
 import { Route, BrowserRouter } from 'react-router-dom';
@@ -8,7 +8,7 @@ import Statistics from '../statistics';
 import Profile from '../profile';
 
 import CarCard from '../xander/CarCard'
-import AddService from '../xander/add-service/AddService';
+import AddCarBrand from '../xander/add-service/AddCarBrand';
 
 export default class App extends Component {
     state = {
@@ -26,7 +26,7 @@ export default class App extends Component {
                         <Route path='/carone' component={CarOne} />
                         <Route path='/cars' component={Cars} />
                         <Route path='/test' component={CarCard} />
-                        <Route path='/test2' component={AddService} />
+                        <Route path='/test2' component={AddCarBrand} />
 
                 </BrowserRouter>
         </>
