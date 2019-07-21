@@ -4,17 +4,18 @@ export const fetchSent = () => {
     }
 }
 
-export const fetchRcvd = (text) => {
+export const fetchRcvd = text => {
     return {
         type: 'FETCH_RCVD',
         payload: text
     }
 }
 
-export const getModels = models => {
-    console.log('action models: ', models)
+export const getModels = ( models, brand ) => {
+    console.log('action models: ', models, brand)
     return {
         type: 'GET_MODELS',
-        payload: models
+        models: typeof models === 'string' ? models.split(',') : [],
+        brand: brand
     }
 }

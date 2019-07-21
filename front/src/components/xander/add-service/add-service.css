@@ -1,3 +1,24 @@
 body {
-    background-color: black !important;
+  background-color: black !important;
 }
+
+#display-brand {
+  margin-top: 20px;
+  color: ivory;
+}
+
+#button-choose,
+#dropdown {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#dropdown {
+    margin-top: 30px;
+}
+
+/* #button-choose {
+    margin: 0 auto;
+} */

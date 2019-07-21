@@ -20,6 +20,7 @@ const Global = createGlobalStyle`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
 `
 
@@ -41,7 +42,6 @@ const Container = styled(animated.div)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
   padding: 25px;
   background: black;
   border-radius: 5px;
