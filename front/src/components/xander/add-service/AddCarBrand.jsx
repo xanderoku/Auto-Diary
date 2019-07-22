@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { useTransition, useSpring, useChain, config } from 'react-spring'
 import { Global, Container, Item } from './styles'
 import data from './data'
-import { getModels } from '../../../redux/actions';
+import { getModels } from '../../actions/actions';
 import './add-service.css';
 import ModelDropdown from './ModelDropdown';
+import { Button, Input, Form, FormGroup, Label } from 'reactstrap';
 
 function AddCarBrand(props) {
   const [open, set] = useState(false)
@@ -39,21 +40,33 @@ function AddCarBrand(props) {
   return (
     <>
       <Global />
-      <Container style={{ ...rest, width: size, height: size }} onClick={() => set(open => !open)}>
-        {!open ? <h5 id="button-choose">Tap me</h5> : ''}
-        {transitions ? transitions.map(({ item, index, props }) => {
-          
-         return  <Item onClick={ gm } brand={item.brand} models={item.models} key={item.ind} style={{ ...props, background: item.css }}> <img src={`images/${item.img}`} alt="CAR"/></Item>
-        }) : ''}
-      </Container>
+      
       {props.brand ?
-      <><div id="display-brand"><h3>{props.brand}</h3></div><ModelDropdown models={props.models} id="dropdown" /></> : ''}
+        <div><div id="display-brand"><h3>{props.brand}</h3></div>
+          <Form style={{ marginTop: '20px' }}>
+            <FormGroup>
+        <ModelDropdown models={props.models} id="dropdown" />
+              <Label for="mileage-input">Odometer</Label>
+              <Input type="text" name="mileage" id="mileage-input" placeholder="miles/kilometers" />
+              <Label for="mileage-input">VIN number</Label>
+              <Input type="vin" name="vin" id="vin-input" placeholder="VIN number" style={{ marginTop: '20px' }} />
+              <Button block style={{ marginTop: '20px', backgroundColor: '#e50914', borderColor: '#e50914' }}>OK</Button>
+            </FormGroup>
+          </Form> 
+        {console.log('need props', props.brand)}</div> 
+        : <Container style={{ ...rest, width: size, height: size }} onClick={() => set(open => !open)}>
+          {!open ? <h5 id="button-choose">Tap me</h5> : ''}
+          {transitions ? transitions.map(({ item, index, props }) => {
+
+            return <Item onClick={gm} index={item.index} brand={item.brand} models={item.models} key={item.ind} style={{ ...props, background: item.css }}> <img src={`images/${item.img}`} alt="CAR" /></Item>
+          }) : ''}
+        </Container>}
     </>
   )
 }
 
 const mapStateToProps = state => {
-  return { ...state };
+  return { ...state.reducer };
 };
 
 export default connect(mapStateToProps, { getModels } )(AddCarBrand) 

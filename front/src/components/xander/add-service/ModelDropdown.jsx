@@ -19,7 +19,7 @@ export default class ModelDropdown extends React.Component {
         getItemValue={item => item}
         renderItem={(item, highlighted) => (
           <div
-            key={item.id}
+            key={item}
             style={DivStyle}
           >
             {item}
