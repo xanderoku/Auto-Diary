@@ -68,7 +68,8 @@ app.set('view engine', 'hbs');
 
 // Подключаем импортированные маршруты с определенным url префиксом.
 app.use('/', indexRouter);
-app.use('/car', carRouter)
+app.use('/car', carRouter);
+app.use('/uploads', express.static('uploads'));
 
 // Обработка ошибок.
 app.use((req, res, next) => {
