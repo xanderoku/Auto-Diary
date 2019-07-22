@@ -50,6 +50,8 @@ function AddCarBrand(props) {
               <Input type="text" name="mileage" id="mileage-input" placeholder="miles/kilometers" />
               <Label for="mileage-input">VIN number</Label>
               <Input type="vin" name="vin" id="vin-input" placeholder="VIN number" style={{ marginTop: '20px' }} />
+              <Label for="mileage-input">Upload image of your car</Label>
+              <Input type="file" name="photo" id="photo-input" placeholder="photo" style={{ marginTop: '20px' }} />
               <Button block style={{ marginTop: '20px', backgroundColor: '#e50914', borderColor: '#e50914' }}>OK</Button>
             </FormGroup>
           </Form> 
