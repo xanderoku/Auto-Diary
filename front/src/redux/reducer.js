@@ -8,7 +8,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case "GET_MODELS":
-            console.log('reducer-action: ', action);
+            // console.log('reducer-action: ', action);
             return { ...state, models: action.models, brand: action.brand }
         case "FETCH_SENT":
             return { loading: true };

@@ -12,7 +12,7 @@ export const fetchRcvd = text => {
 }
 
 export const getModels = ( models, brand ) => {
-    console.log('action models: ', models, brand)
+    // console.log('action models: ', models, brand)
     return {
         type: 'GET_MODELS',
         models: typeof models === 'string' ? models.split(',') : [],

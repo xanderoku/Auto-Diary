@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Button, Input, Form, FormGroup } from 'reactstrap';
 import { connect } from 'react-redux';
 import { useTransition, useSpring, useChain, config } from 'react-spring'
 import { Global, Container, Item } from './styles'
@@ -48,6 +49,14 @@ function AddCarBrand(props) {
       </Container>
       {props.brand ?
       <><div id="display-brand"><h3>{props.brand}</h3></div><ModelDropdown models={props.models} id="dropdown" /></> : ''}
+    {props.brand ? <Form style={{marginTop:'20px'}}>
+        <FormGroup>
+          {/* <Label for="mileage-input">Mileage</Label> */}
+          <Input type="text" name="mileage" id="mileage-input" placeholder="miles/kilometers" />
+          <Input type="vin" name="vin" id="vin-input" placeholder="VIN number" style={{marginTop:'20px'}} />
+          <Button block style={{marginTop:'20px', backgroundColor: '#e50914', borderColor: '#e50914'}}>OK</Button>
+        </FormGroup>
+    </Form> : null}
     </>
   )
 }
