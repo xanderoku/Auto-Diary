@@ -6,7 +6,9 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import Dairy from '../dairy';
 import Statistics from '../statistics';
 import Profile from '../profile';
-import oneCar from '../oneCar/oneCar'
+import oneCar from '../oneCar/oneCar';
+import Regform from '../forms/RegForm';
+import Loginform from '../forms/LoginForm';
 
 import CarCard from '../xander/CarCard'
 import AddCarBrand from '../xander/add-service/AddCarBrand';
@@ -22,6 +24,8 @@ export default class App extends Component {
             <BrowserRouter>
                         <Navbar />
                         <Route exact path='/' component={Profile} />
+                        <Route path='/signup' component={Regform} />
+                        <Route path='/login' component={Loginform} />
                         <Route path='/dairy' component={Dairy} />
                         <Route path='/statistics' component={Statistics} />
                         <Route path='/onecar' component={oneCar} />
