@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Navbar from '../navbar';
+import Navbar from '../navbar';
 // import CarOne from '../carOne';
 import Cars from '../cars';
 import { Route, BrowserRouter } from 'react-router-dom';
@@ -20,7 +20,7 @@ export default class App extends Component {
         <>
             {/* Welcome to {this.state.name} */}
             <BrowserRouter>
-                        {/* <Navbar /> */}
+                        <Navbar />
                         <Route exact path='/' component={Profile} />
                         <Route path='/dairy' component={Dairy} />
                         <Route path='/statistics' component={Statistics} />
