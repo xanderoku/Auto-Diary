@@ -27,3 +27,10 @@ export const showCar = text => {
     payload: text
   };
 };
+
+export const selectModel = text => {
+    return {
+        type: "SELECT_MODEL",
+        payload: text
+    }
+}
