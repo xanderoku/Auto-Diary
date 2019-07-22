@@ -44,14 +44,18 @@ function AddCarBrand(props) {
       {props.brand ?
         <div><div id="display-brand"><h3>{props.brand}</h3></div>
           <Form style={{ marginTop: '20px' }}>
+        <ModelDropdown models={props.models} id="dropdown" value="911" />
+              {console.log(ModelDropdown.target.value)}
             <FormGroup>
-        <ModelDropdown models={props.models} id="dropdown" />
+              <Input type="text" name="brand" value="mileage-input" hidden />
+              <Input type="text" name="model" value="mileage-input" hidden />
+
               <Label for="mileage-input">Odometer</Label>
               <Input type="text" name="mileage" id="mileage-input" placeholder="miles/kilometers" />
-              <Label for="mileage-input">VIN number</Label>
+              <Label for="vin-input">VIN number</Label>
               <Input type="vin" name="vin" id="vin-input" placeholder="VIN number" style={{ marginTop: '20px' }} />
-              <Label for="mileage-input">Upload image of your car</Label>
-              <Input type="file" name="photo" id="photo-input" placeholder="photo" style={{ marginTop: '20px' }} />
+              <Label for="photo-input">Upload image of your car</Label>
+              <Input type="file" name="imgCar" id="photo-input" placeholder="photo" style={{ marginTop: '20px' }} />
               <Button block style={{ marginTop: '20px', backgroundColor: '#e50914', borderColor: '#e50914' }}>OK</Button>
             </FormGroup>
           </Form> 
