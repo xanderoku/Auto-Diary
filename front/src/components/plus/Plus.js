@@ -1,31 +1,59 @@
 import React, { Component } from 'react';
 import Pluscar from '../pluscar';
+import { Parallax } from 'react-spring'
+import './styles.css'
 
+const Page = ({ offset, caption, first, second, gradient, onClick }) => (
+  <React.Fragment>
+    <Parallax.Layer offset={offset} speed={0.2} onClick={onClick}>
+      <div className="slopeBegin" />
+    </Parallax.Layer>
+
+    <Parallax.Layer offset={offset} speed={-0.2} onClick={onClick}>
+      <div className={`slopeEnd ${gradient}`} />
+    </Parallax.Layer>
+
+    <Parallax.Layer className="text number" offset={offset} speed={0.3}>
+      <span>0{offset + 1}</span>
+    </Parallax.Layer>
+
+    <Parallax.Layer className="text header" offset={offset} speed={0.4}>
+      <span>
+        <p style={{ fontSize: 20 }}>{caption}</p>
+        <div className={`stripe ${gradient}`} />
+        <p>{first}</p>
+        <p>{second}</p>
+      </span>
+    </Parallax.Layer>
+  </React.Fragment>
+)
 export default class Plus extends Component {
-    constructor() {
-        super();
-        this.state = {
-          modalIsOpen: false,
-        };
-      }
-    
-      closeModal = async () => {
-         await this.setState({modalIsOpen: false});
-        }
-    
-      openModal = async (question) => {
-        await this.setState({ question })
-        await this.setState({ modalIsOpen: true });
-    
-      }
+    scroll = to => this.refs.parallax.scrollTo(to)
     render() {
-        return (
-            <>
-              <button onClick={ this.openModal}>
-              <img src='https://avatanplus.com/files/resources/mid/5a2800924e8c01602c423b92.png' alt='add car'></img>
-              </button>  
-              {this.state.modalIsOpen && <Pluscar modalIsOpen={this.state.modalIsOpen} onModalClose={this.closeModal}/>}
-            </>
-        )
+      return (
+        <div
+          style={{
+            gridColumn: 'span 2',
+            gridRow: 'span 2',
+            background: '#dfdfdf'
+          }}>
+          <Parallax
+            className="container"
+            ref="parallax"
+            pages={3}
+            horizontal
+            scrolling={false}>
+            <Pluscar
+              offset={0}
+              gradient="pink"
+              caption="who we are"
+              first="Lorem ipsum"
+              second="dolor sit"
+              onClick={() => this.scroll(1)}
+            />
+          </Parallax>
+        </div>
+      )
     }
-}
+  }
+  
