@@ -1,0 +1,18 @@
+.maimBtn{
+    font-size: 80px;
+}
+.maimBtn:hover{
+    transform: rotate(90deg);
+    transition: 1s;
+}
+.maimBtn A {
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
+}
+.maimBtn A:hover {
+    color: red;
+    transform: rotate(90deg);
+    transition: 1s;
+    text-decoration: none;
+}

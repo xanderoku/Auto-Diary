@@ -19,3 +19,11 @@ export const getModels = ( models, brand ) => {
         brand: brand
     }
 }
+
+export const showCar = text => {
+  console.log('action showCar', text);
+  return {
+    type: "SHOW_CAR",
+    payload: text
+  };
+};

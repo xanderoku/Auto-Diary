@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { Button, Input, Form, FormGroup } from 'reactstrap';
+import { Button, Input, Form, FormGroup, Label } from 'reactstrap';
 import { connect } from 'react-redux';
 import { useTransition, useSpring, useChain, config } from 'react-spring'
 import { Global, Container, Item } from './styles'
 import data from './data'
-import { getModels } from '../../../redux/actions';
+import { getModels } from '../../actions/actions';
 import './add-service.css';
 import ModelDropdown from './ModelDropdown';
 
@@ -40,29 +40,35 @@ function AddCarBrand(props) {
   return (
     <>
       <Global />
-      <Container style={{ ...rest, width: size, height: size }} onClick={() => set(open => !open)}>
-        {!open ? <h5 id="button-choose">Tap me</h5> : ''}
-        {transitions ? transitions.map(({ item, index, props }) => {
-          
-         return  <Item onClick={ gm } brand={item.brand} models={item.models} key={item.ind} style={{ ...props, background: item.css }}> <img src={`images/${item.img}`} alt="CAR"/></Item>
-        }) : ''}
-      </Container>
+      
       {props.brand ?
-      <><div id="display-brand"><h3>{props.brand}</h3></div><ModelDropdown models={props.models} id="dropdown" /></> : ''}
-    {props.brand ? <Form style={{marginTop:'20px'}}>
-        <FormGroup>
-          {/* <Label for="mileage-input">Mileage</Label> */}
-          <Input type="text" name="mileage" id="mileage-input" placeholder="miles/kilometers" />
-          <Input type="vin" name="vin" id="vin-input" placeholder="VIN number" style={{marginTop:'20px'}} />
-          <Button block style={{marginTop:'20px', backgroundColor: '#e50914', borderColor: '#e50914'}}>OK</Button>
-        </FormGroup>
-    </Form> : null}
+        <div><div id="display-brand"><h3>{props.brand}</h3></div>
+          <Form style={{ marginTop: '20px' }}>
+            <FormGroup>
+        <ModelDropdown models={props.models} id="dropdown" />
+              <Label for="mileage-input">Odometer</Label>
+              <Input type="text" name="mileage" id="mileage-input" placeholder="miles/kilometers" />
+              <Label for="mileage-input">VIN number</Label>
+              <Input type="vin" name="vin" id="vin-input" placeholder="VIN number" style={{ marginTop: '20px' }} />
+              <Label for="mileage-input">Upload image of your car</Label>
+              <Input type="file" name="photo" id="photo-input" placeholder="photo" style={{ marginTop: '20px' }} />
+              <Button block style={{ marginTop: '20px', backgroundColor: '#e50914', borderColor: '#e50914' }}>OK</Button>
+            </FormGroup>
+          </Form> 
+        {console.log('need props', props.brand)}</div> 
+        : <Container style={{ ...rest, width: size, height: size }} onClick={() => set(open => !open)}>
+          {!open ? <h5 id="button-choose">Tap me</h5> : ''}
+          {transitions ? transitions.map(({ item, index, props }) => {
+
+            return <Item onClick={gm} index={item.index} brand={item.brand} models={item.models} key={item.ind} style={{ ...props, background: item.css }}> <img src={`images/${item.img}`} alt="CAR" /></Item>
+          }) : ''}
+        </Container>}
     </>
   )
 }
 
 const mapStateToProps = state => {
-  return { ...state };
+  return { ...state.reducer };
 };
 
 export default connect(mapStateToProps, { getModels } )(AddCarBrand) 

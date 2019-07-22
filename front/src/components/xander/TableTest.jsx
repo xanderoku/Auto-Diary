@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from 'reactstrap';
+import './TableTest.css';
 
 export default class TableTest extends React.Component {
   render() {
@@ -7,34 +8,127 @@ export default class TableTest extends React.Component {
       <Table borderless style={{color: 'white'}}>
         <thead>
           <tr>
-            <th>JULY</th>
-            <th>Type</th>
-            <th>Mileage</th>
-            <th>Date</th>
-            <th>Price</th>
+            <th>Service schedule:</th>
+            <th>Type/km</th>
+            <th>15000</th>
+            <th>30000</th>
+            <th>45000</th>
+            <th>60000</th>
+            <th>75000</th>
+            <th>90000</th>
+            <th>105000</th>
+            <th>120000</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <th scope="row"></th>
-            <td>Change oil</td>
-            <td>15000</td>
-            <td>15/07/2019</td>
-            <td>100$</td>
+            <td>Engine oil / filter</td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td>Change air filter</td>
-            <td>15000</td>
-            <td>15/07/2019</td>
-            <td>30$</td>
+            <td>Cabin air filter</td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            
           </tr>
           <tr>
             <th scope="row"></th>
-            <td>Add antifreeze</td>
-            <td>15000</td>
-            <td>15/07/2019</td>
-            <td>35$</td>
+            <td>Brake fluid</td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>Air filter</td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>Antifreeze</td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>Fuel filter</td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>Sparkplugs</td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>Transmission fluid</td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep">🔴</span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+            <td><span role="img" aria-label="sheep"></span></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>Transmission belt</td>
+            <td><span role="img" aria-label="sheep">✅</span></td>
+            <td><span role="img" aria-label="sheep">✅</span></td>
+            <td><span role="img" aria-label="sheep">✅</span></td>
+            <td><span role="img" aria-label="sheep">✅</span></td>
+            <td><span role="img" aria-label="sheep">✅</span></td>
+            <td><span role="img" aria-label="sheep">✅</span></td>
+            <td><span role="img" aria-label="sheep">✅</span></td>
+            <td><span role="img" aria-label="sheep">✅</span></td>
           </tr>
         </tbody>
       </Table>
