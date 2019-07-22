@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Button, Input, Form, FormGroup, Label } from 'reactstrap';
 import { connect } from 'react-redux';
 import { useTransition, useSpring, useChain, config } from 'react-spring'
 import { Global, Container, Item } from './styles'
@@ -6,7 +7,6 @@ import data from './data'
 import { getModels } from '../../actions/actions';
 import './add-service.css';
 import ModelDropdown from './ModelDropdown';
-import { Button, Input, Form, FormGroup, Label } from 'reactstrap';
 
 function AddCarBrand(props) {
   const [open, set] = useState(false)
@@ -45,7 +45,7 @@ function AddCarBrand(props) {
         <div><div id="display-brand"><h3>{props.brand}</h3></div>
           <Form style={{ marginTop: '20px' }}>
         <ModelDropdown models={props.models} id="dropdown" value="911" />
-              {console.log(ModelDropdown.target.value)}
+
             <FormGroup>
               <Input type="text" name="brand" value="mileage-input" hidden />
               <Input type="text" name="model" value="mileage-input" hidden />
