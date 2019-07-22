@@ -50,11 +50,12 @@ app.use(cookiesCleaner);
 
 // Импорт маршрутов.
 const indexRouter = require("./routes/index");
+const carRouter = require("./routes/car")
 
 
 // Подключаем mongoose.
 const mongoose = require("mongoose");
-mongoose.connect('mongodb://localhost:27017/learnAuth', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/autoDiary', { useNewUrlParser: true });
 
 
 // Подключаем статику
@@ -67,6 +68,7 @@ app.set('view engine', 'hbs');
 
 // Подключаем импортированные маршруты с определенным url префиксом.
 app.use('/', indexRouter);
+app.use('/car', carRouter)
 
 // Обработка ошибок.
 app.use((req, res, next) => {
