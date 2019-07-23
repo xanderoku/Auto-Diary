@@ -50,23 +50,26 @@ app.use(cookiesCleaner);
 
 // Импорт маршрутов.
 const indexRouter = require("./routes/index");
+const carRouter = require("./routes/car")
 
 
 // Подключаем mongoose.
 const mongoose = require("mongoose");
-mongoose.connect('mongodb://localhost:27017/learnAuth', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/autoDiary', { useNewUrlParser: true });
 
 
 // Подключаем статику
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Подключаем views(hbs)
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'hbs');
 
 
 // Подключаем импортированные маршруты с определенным url префиксом.
 app.use('/', indexRouter);
+app.use('/car', carRouter);
+app.use('/uploads', express.static('uploads'));
 
 // Обработка ошибок.
 app.use((req, res, next) => {

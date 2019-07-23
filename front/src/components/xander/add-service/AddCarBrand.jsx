@@ -10,7 +10,6 @@ import ModelDropdown from './ModelDropdown';
 
 function AddCarBrand(props) {
   const [open, set] = useState(false)
-
   const springRef = useRef()
   const { size, opacity, ...rest } = useSpring({
     ref: springRef,
@@ -44,14 +43,19 @@ function AddCarBrand(props) {
       {props.brand ?
         <div><div id="display-brand"><h3>{props.brand}</h3></div>
           <Form style={{ marginTop: '20px' }}>
-            <FormGroup>
+
         <ModelDropdown models={props.models} id="dropdown" />
+
+            <FormGroup>
+              {/* <Input type="hidden" name="brand" value={ props.brand } />
+              <Input type="hidden" name="model" value={ props.model } />
+                {console.log(props.model)} */}
               <Label for="mileage-input">Odometer</Label>
               <Input type="text" name="mileage" id="mileage-input" placeholder="miles/kilometers" />
-              <Label for="mileage-input">VIN number</Label>
-              <Input type="vin" name="vin" id="vin-input" placeholder="VIN number" style={{ marginTop: '20px' }} />
-              <Label for="mileage-input">Upload image of your car</Label>
-              <Input type="file" name="photo" id="photo-input" placeholder="photo" style={{ marginTop: '20px' }} />
+              <Label for="vin-input">VIN number</Label>
+              <Input type="text" name="vin" id="vin-input" placeholder="VIN number" style={{ marginTop: '20px' }} />
+              <Label for="photo-input">Upload image of your car</Label>
+              <Input type="file" name="imgCar" id="photo-input" placeholder="photo" style={{ marginTop: '20px' }} />
               <Button block style={{ marginTop: '20px', backgroundColor: '#e50914', borderColor: '#e50914' }}>OK</Button>
             </FormGroup>
           </Form> 

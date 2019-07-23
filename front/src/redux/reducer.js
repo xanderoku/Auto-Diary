@@ -2,7 +2,8 @@ const initialState = {
     loading: false,
     text: null,
     models: [],
-    brand: null
+    brand: null,
+    payload: ""
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,6 +11,8 @@ const reducer = (state = initialState, action) => {
       case "GET_MODELS":
         // console.log("reducer-action: ", action);
         return { ...state, models: action.models, brand: action.brand };
+      case "SELECT_MODEL":
+        return { ...state, model: action.payload };
       case "FETCH_SENT":
         return { loading: true };
       case "FETCH_RCVD":
