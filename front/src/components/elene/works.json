@@ -1,0 +1,92 @@
+[
+    {
+        "15000": {
+            "Engine oil": "change",
+            "Cabin air filter": "change",
+            "Brake fluid": null,
+            "Air filter": null,
+            "Antifreeze": null,
+            "Fuel filter": null,
+            "Sparkplugs": null,
+            "Transmission fluid": null,
+            "Transmission belt": "check"
+        },
+        "30000": {
+            "Engine oil": "change",
+            "Cabin air filter": "change",
+            "Brake fluid": "change",
+            "Air filter": null,
+            "Antifreeze": null,
+            "Fuel filter": null,
+            "Sparkplugs": null,
+            "Transmission fluid": null,
+            "Transmission belt": "check"
+        },
+        "45000": {
+            "Engine oil": "change",
+            "Cabin air filter": "change",
+            "Brake fluid": null,
+            "Air filter": "change",
+            "Antifreeze": "change",
+            "Fuel filter": null,
+            "Sparkplugs": null,
+            "Transmission fluid": null,
+            "Transmission belt": "check"
+        },
+        "60000": {
+            "Engine oil": "change",
+            "Cabin air filter": "change",
+            "Brake fluid": "change",
+            "Air filter": null,
+            "Antifreeze": null,
+            "Fuel filter": "change",
+            "Sparkplugs": "change",
+            "Transmission fluid": null,
+            "Transmission belt": "check"
+        },
+        "75000": {
+            "Engine oil": "change",
+            "Cabin air filter": "change",
+            "Brake fluid": null,
+            "Air filter": null,
+            "Antifreeze": null,
+            "Fuel filter": null,
+            "Sparkplugs": null,
+            "Transmission fluid": null,
+            "Transmission belt": "check"
+        },
+        "90000": {
+            "Engine oil": "change",
+            "Cabin air filter": "change",
+            "Brake fluid": "change",
+            "Air filter": "change",
+            "Antifreeze": "change",
+            "Fuel filter": null,
+            "Sparkplugs": null,
+            "Transmission fluid": "change",
+            "Transmission belt": "check"
+        },
+        "105000": {
+            "Engine oil": "change",
+            "Cabin air filter": "change",
+            "Brake fluid": null,
+            "Air filter": null,
+            "Antifreeze": null,
+            "Fuel filter": null,
+            "Sparkplugs": null,
+            "Transmission fluid": null,
+            "Transmission belt": "check"
+        },
+        "120000": {
+            "Engine oil": "change",
+            "Cabin air filter": "change",
+            "Brake fluid": "change",
+            "Air filter": null,
+            "Antifreeze": null,
+            "Fuel filter": "change",
+            "Sparkplugs": "change",
+            "Transmission fluid": null,
+            "Transmission belt": "check"
+        }
+    }
+]
