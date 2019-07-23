@@ -1,5 +1,6 @@
 // Фреймворк веб-приложений.
 const express = require("express");
+const dotenv = require('dotenv')
 const app = express();
 // HTTP request logger middleware for node.js.
 // Логгирование деталей запросов.
@@ -12,6 +13,7 @@ const RedisStore = require('connect-redis')(session);
 const client  = redis.createClient();
 const {cookiesCleaner} = require('./middleware/auth');
 
+require('dotenv').config();
 
 app.use(morgan("dev"));
 // Обработка POST запросов.
@@ -19,8 +21,6 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 // json.
 app.use(express.json());
-
-
 
 // initialize cookie-parser to allow us access the cookies stored in the browser. 
 app.use(cookieParser());
@@ -60,11 +60,6 @@ mongoose.connect('mongodb://localhost:27017/autoDiary', { useNewUrlParser: true 
 
 // Подключаем статику
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Подключаем views(hbs)
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'hbs');
-
 
 // Подключаем импортированные маршруты с определенным url префиксом.
 app.use('/', indexRouter);
