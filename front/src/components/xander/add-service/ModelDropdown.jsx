@@ -1,12 +1,21 @@
 import React from "react";
 import ReactAutocomplete from "react-autocomplete";
+import { connect } from "react-redux";
+import { selectModel } from '../../actions/actions'
 
-export default class ModelDropdown extends React.Component {
+class ModelDropdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ""
+      value: "",
+
+      
     };
+  }
+
+  setModel = (value) => {
+    this.setState({ value });
+    this.props.selectModel(value);
   }
 
   render() {
@@ -18,7 +27,7 @@ export default class ModelDropdown extends React.Component {
         }
         getItemValue={item => item}
         renderItem={(item, highlighted) => (
-          <div
+          <div id="need-id"
             key={item}
             style={DivStyle}
           >
@@ -26,8 +35,8 @@ export default class ModelDropdown extends React.Component {
           </div>
         )}
         value={this.state.value}
-        onChange={e => this.setState({ value: e.target.value })}
-        onSelect={value => this.setState({ value })}
+        onChange={e => this.setModel( e.target.value )}
+        onSelect={this.setModel}
       />
     );
   }
@@ -37,3 +46,11 @@ const DivStyle = {
     // backgroundColor: 'red',
     // marginTop: '20px'
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    selectModel: text => dispatch(selectModel(text))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(ModelDropdown);

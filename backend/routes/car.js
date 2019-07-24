@@ -36,24 +36,27 @@ router
   .route("/register")
   //   .get(sessionChecker, (req, res) => {
   //     res.render("signup");
+  //
   //   })
-  .post(upload.single("imgCar"), async (req, res) => {
-    console.log(req.file)
-    try {
-      const car = new Car({
-        brand: req.body.brand,
-        model: req.body.model,
-        mileage: req.body.mileage,
-        vin: req.body.vin,
-        imgCar: req.file.path
+    
+
+      .post(upload.single("imgCar"), async (req, res) => {
+        console.log(req.body);
+        console.log(req.file.path);
+        try {
+          const car = await Car.create({
+            brand: req.body.brand,
+            model: req.body.model,
+            mileage: req.body.mileage,
+            vin: req.body.vin,
+            imgCar: req.file.path
+          });
+          const success = true;
+          res.json({ car, success });
+        } catch (error) {
+          const success = false;
+          res.json({ success });
+        }
       });
-      await car.save();
-      const success = true;
-      res.json({ car, success });
-    } catch (error) {
-      const success = false;
-      res.json({ success });
-    }
-  });
 
 module.exports = router;
