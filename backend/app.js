@@ -2,15 +2,13 @@
 const express = require("express");
 const dotenv = require('dotenv')
 const app = express();
-// HTTP request logger middleware for node.js.
-// Логгирование деталей запросов.
 const morgan = require("morgan");
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const path = require('path');
-const redis   = require("redis");
-const RedisStore = require('connect-redis')(session);
-const client  = redis.createClient();
+// const redis   = require("redis");
+// const RedisStore = require('connect-redis')(session);
+// const client  = redis.createClient();
 const {cookiesCleaner} = require('./middleware/auth');
 
 require('dotenv').config();
@@ -26,21 +24,21 @@ app.use(express.json());
 app.use(cookieParser());
 
 // initialize express-session to allow us track the logged-in user across sessions.
-app.use(session({
-  store: new RedisStore({ 
-    client,
-    host: 'localhost', 
-    port: 6379, 
-    ttl :  260
-  }),
-  key: 'user_sid',
-  secret: 'anything here',
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    expires: 600000
-  }
-}));
+// app.use(session({
+//   store: new RedisStore({ 
+//     client,
+//     host: 'localhost', 
+//     port: 6379, 
+//     ttl :  260
+//   }),
+//   key: 'user_sid',
+//   secret: 'anything here',
+//   resave: false,
+//   saveUninitialized: false,
+//   cookie: {
+//     expires: 600000
+//   }
+// }));
 
 
 // This middleware will check if user's cookie is still saved in browser and user is not set, then automatically log the user out.
@@ -67,19 +65,19 @@ app.use('/car', carRouter);
 app.use('/uploads', express.static('uploads'));
 
 // Обработка ошибок.
-app.use((req, res, next) => {
-  const error = new Error("Not found");
-  error.status = 404;
-  next(error);
-});
+// app.use((req, res, next) => {
+//   const error = new Error("Not found");
+//   error.status = 404;
+//   next(error);
+// });
 
-app.use((error, req, res, next) => {
-  res.status(error.status || 500);
-  res.json({
-    error: {
-      message: error.message
-    }
-  });
-});
+// app.use((error, req, res, next) => {
+//   res.status(error.status || 500);
+//   res.json({
+//     error: {
+//       message: error.message
+//     }
+//   });
+// });
 
 module.exports = app;

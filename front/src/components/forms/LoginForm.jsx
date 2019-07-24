@@ -17,11 +17,20 @@ export default function RegForm(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    //
     axios
       .post(`/login`, { email, password})
       .then(res => {
-        console.log(res);
+        if (res.status === 200) {
+          console.log('log form: ', res);
+          props.history.push('/');
+        } else {
+          const error = new Error(res.error);
+          throw error;
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Error logging in please try again');
       });
     resetEmail();
     resetPassword();

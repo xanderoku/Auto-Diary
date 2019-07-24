@@ -1,7 +1,5 @@
 const jwt = require('jsonwebtoken');
 const secret = process.env.SECRET;
-// console.log('newauth secr check:', secret);
-
 
 const authNew = function(req, res, next) {
   const token =
@@ -9,6 +7,8 @@ const authNew = function(req, res, next) {
     req.query.token ||
     req.headers['x-access-token'] ||
     req.cookies.token;
+    // console.log('token: ', req.cookies.token);
+    
   if (!token) {
     res.status(401).send('Unauthorized: No token provided');
   } else {
