@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "./hookForm.css";
 import { Button, Input, Form, Label } from "reactstrap";
 import { connect } from "react-redux";
+import Cookies from 'js-cookie';
 
 function HookForm(props) {
   const [mileage, setMileage] = useState("");
   const [vin, setVin] = useState("");
   const [img, setImg] = useState("");
+  const idUser = Cookies.get('user')
   
   const fileSelectedHandler = event => {
     console.log("fileSelectedHandler", event.target.files[0])
@@ -23,6 +25,7 @@ function HookForm(props) {
     formData.append("model", props.model);
     formData.append("mileage", mileage);
     formData.append("vin", vin);
+    formData.append("owner", idUser);
 
     let response = await fetch("/car/register/", {
       mode: "no-cors",

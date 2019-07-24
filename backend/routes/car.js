@@ -45,6 +45,7 @@ router
         console.log(req.file.path);
         try {
           const car = await Car.create({
+            owner: req.body.owner,
             brand: req.body.brand,
             model: req.body.model,
             mileage: req.body.mileage,
