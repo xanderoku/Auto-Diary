@@ -4,29 +4,30 @@ import Cookies from "js-cookie";
 import { connect } from "react-redux";
 import { Spinner, Col, Row } from "reactstrap";
 import "./allCar.css";
-import OneCar from "../oneCar/oneCar"
+import OneCar from "../oneCar/oneCar";
 
 class AllCar extends Component {
+
+  
   componentDidMount() {
     const idUser = Cookies.get("user");
     this.props.fetchCar("car/allcars", idUser);
   }
 
+
+
   render() {
     return (
       <div className="all-car">
-        {this.props.allCars ? 
+        {this.props.allCars ? (
           <OneCar />
-         : (
+        ) : (
           <Spinner
             color="danger"
             style={{ width: "9rem", height: "9rem" }}
             className="spinner"
           />
         )}
-          {/* {this.props.allCars.map((value, index) => {
-          return value.brand
-          })} */}
       </div>
     );
   }

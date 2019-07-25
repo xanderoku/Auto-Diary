@@ -52,12 +52,12 @@ router.route("/register")
 
 router.route("/allcars")
 .post( async (req, res) => {
-console.log(req.body.user_id)
+// console.log(req.body.user_id)
   try {
     const carAll = await Car.find({
       owner: req.body.user_id
     })
-    console.log("carAll: ", carAll);
+    // console.log("carAll: ", carAll);
     const success = true;
     res.json({ carAll, success });
   } catch (error) {
@@ -65,5 +65,22 @@ console.log(req.body.user_id)
     res.json({ success });
   }
 });
+
+router.route("/deletecar")
+.delete(async (req, res) => {
+  // try {
+    await Car.deleteOne({
+      id: req.body.car_id
+    });
+    const carAll = await Car.find({ owner: req.body.user_id });
+    const carDeleted = true;
+    // console.log("cars that are after delete", restCars);
+    res.json({ carAll });
+  }) 
+  // catch (error) {
+  //   const carDeleted = false;
+  //   res.json({ carDeleted });
+  // }
+// });
 
 module.exports = router;
