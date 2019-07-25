@@ -1,0 +1,86 @@
+{
+  "engine": {
+    "img1": "engine1",
+    "img2": "engine2",
+    "img3": "engine3",
+    "img4": "engine4",
+    "oftenUsed": [
+      "oil liquid and oil filter change",
+      "fuel filter replacement",
+      "spark plug replacement",
+      "engine diagnostics",
+      "nozzle cleaning",
+      "antifreeze replacement",
+      "thermostat replacement",
+      "drive belt replacement",
+      "timing belt replacement",
+      "clutch disc replacement",
+      "gear box repair",
+      "generator replacement",
+      "air conditioner pump replacement",
+      "air conditioner refill",
+      "radiator flushing"
+    ]
+  },
+  "body": {
+    "img1": "body1",
+    "img2": "body2",
+    "img3": "body3",
+    "img4": "body4",
+    "oftenUsed": [
+      "",
+      "driver front door repair",
+      "front passenger door repair",
+      "driver back door repair",
+      "back passenger door repair",
+      "hood repair",
+      "trunk repair",
+      "roof repair",
+      "front right wing repair",
+      "rear right wing repair",
+      "front left wing repair",
+      "rear left wing repair",
+      "replacement front headlight",
+      "replacement back headlight",
+      "windshield replacement"
+    ]
+  },
+  "chassis": {
+    "img1": "chassis1",
+    "img2": "chassis2",
+    "img3": "chassis3",
+    "img4": "chassis4",
+    "oftenUsed": [
+      "replacement front brake discs",
+      "replacement back brake discs",
+      "front brake pad replacement",
+      "back brake pad replacement",
+      "front suspension bushing change",
+      "back suspension bushing change",
+      "wheel alignment",
+      "replacement of front levers",
+      "replacement of back levers",
+      "replacement of front shock absorbers",
+      "replacement of back shock absorbers",
+      "front hub replacement",
+      "back hub replacement",
+      "replacement front CV joints",
+      "replacement back CV joints"
+    ]
+  },
+  "other": {
+    "img1": "other1",
+    "img2": "other2",
+    "img3": "other3",
+    "img4": "other4",
+    "oftenUsed": [
+      "insurance",
+      "car wash",
+      "fuel",
+      "seasonal rubber replacement",
+      "fines",
+      "car diagnostics",
+      "car carpets"
+    ]
+  }
+}

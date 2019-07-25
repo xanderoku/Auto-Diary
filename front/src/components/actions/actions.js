@@ -34,3 +34,39 @@ export const selectModel = text => {
         payload: text
     }
 }
+export const selectCar = value => {
+    return {
+        type: "CHOOSE_CAR",
+        payload: value
+    }
+}
+
+export const changeContent = value => {
+    return {
+        type: "CHANGE_CONTENT",
+        payload: value
+    }
+}
+
+export const getCars = value => {
+    return {
+        type: "GET_CARS",
+        payload: value
+    }
+}
+
+export function getCarsFetch(url, userId) {
+    return (dispatch) => {
+        fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            user_id: userId
+          })
+        })
+          .then(response => response.json())
+          .then(value => dispatch(getCars(value)));
+    }
+}
