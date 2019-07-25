@@ -20,20 +20,20 @@ export default class App extends Component {
     } 
      render() {
     return (
-        <>
-            <BrowserRouter>
-                        <Navbar />
-                        <Route exact path='/' component={withAuth(Profile)} />
-                        <Route path='/signup' component={Regform} />
-                        <Route path='/login' component={Loginform} />
-                        <Route path='/logout' component={Logout} />
-                        <Route path='/diary' component={Diary} />
-                        <Route path='/statistics' component={Statistics} />
-                        <Route path='/onecar' component={oneCar} />
-                        <Route path='/cars' component={Cars} />
-                        <Route path='/test' component={CarCard} />
-                        <Route path='/test2' component={AddCarBrand} />
-                </BrowserRouter>
-        </>
-    )
+      <>
+        <BrowserRouter>
+          <Navbar />
+          <Route exact path="/" component={withAuth(Profile)} />
+          <Route exact path="/signup" component={Regform} />
+          <Route path="/login" component={Loginform} />
+          <Route path="/logout" component={Logout} />
+          <Route path="/diary" component={Diary} />
+          <Route path="/statistics" component={Statistics} />
+          <Route path="/onecar" component={oneCar} />
+          <Route path="/cars" component={Cars} />
+          <Route path="/test" component={CarCard} />
+          <Route path="/test2" component={AddCarBrand} />
+        </BrowserRouter>
+      </>
+    );
 }}

@@ -17,7 +17,7 @@ export default function NameForm(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log("testform: ", firstName, lastName);
+    // console.log("testform: ", firstName, lastName);
     //
     axios
       .post(`/signup`, { email: firstName, password: lastName })

@@ -44,3 +44,13 @@
 .time-line{
 margin-left: 180px;
 }
+
+.model {
+  color: grey;
+  margin-left: 10px;
+}
+
+.brand-model {
+  display: flex;
+  justify-content: center;
+}

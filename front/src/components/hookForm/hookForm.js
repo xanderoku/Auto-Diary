@@ -11,7 +11,6 @@ function HookForm(props) {
   const idUser = Cookies.get('user')
   
   const fileSelectedHandler = event => {
-    console.log("fileSelectedHandler", event.target.files[0])
     setImg(event.target.files[0]);
   }
 
@@ -33,7 +32,6 @@ function HookForm(props) {
       body: formData
     });
     const data = await response.json();
-    console.log(data);
   };
 
   return (
