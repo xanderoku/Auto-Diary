@@ -34,3 +34,16 @@ export const selectModel = text => {
         payload: text
     }
 }
+export const selectCar = value => {
+    return {
+        type: "CHOOSE_CAR",
+        payload: value
+    }
+}
+
+export const changeContent = value => {
+    return {
+        type: "CHANGE_CONTENT",
+        payload: value
+    }
+}

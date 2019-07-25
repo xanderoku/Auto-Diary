@@ -1,43 +1,46 @@
 .oneCarMain{
-    color: white;
-    transition: 1s;
-    margin-top: 20px;
+  color: white;
+  transition: 1s;
+  margin-top: 40px;
 }
 .oneCarMain button{
-    margin-left: 15px;
-    margin-top: 20px;
-    width: 80px;
+  margin-left: 15px;
+  margin-top: 20px;
+  width: 80px;
 }
 .oneCarMain:hover{
-        position: relative;
-        opacity: 1;
-        transform: scale(1.3); /*вот так*/
-        transition: 1s;
+      position: relative;
+      opacity: 1;
+      transform: scale(1.3); /*вот так*/
+      transition: 1s;
 }
 
 .anim-appear {
-    opacity: 0.01;
-  }
-   
-  .anim-appear.anim-appear-active{
-    opacity: 1;
-    transition: opacity 1s ease-in;
-  }
+  opacity: 0.01;
+}
+ 
+.anim-appear.anim-appear-active{
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
 
-  .oneCarMain1{
-    color: white;
-    transition: 1s;
-    margin-top: 20px;
-    transform: scale(0.8); 
-    filter: blur(5px);
+.oneCarMain1{
+  color: white;
+  transition: 1s;
+  margin-top: 20px;
+  transform: scale(0.8); 
+  filter: blur(5px);
 }
 .oneCarMain1 button{
-    margin-left: 15px;
-    margin-top: 20px;
-    width: 80px;
+  margin-left: 15px;
+  margin-top: 20px;
+  width: 80px;
 }
 .oneCarMain1:hover{
-        position: relative;
-        opacity: 1;
-        transition: 1s;
+      position: relative;
+      opacity: 1;
+      transition: 1s;
+}
+.time-line{
+margin-left: 180px;
 }
