@@ -2,21 +2,24 @@ import React, { useState } from "react";
 import "./hookForm.css";
 import { Button, Input, Form, Label } from "reactstrap";
 import { connect } from "react-redux";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
+import DropDown from "../xander/add-service/ModelDropdown";
+import { Redirect } from "react-router-dom";
+import { changeContent, showCar } from "../actions/actions";
 
 function HookForm(props) {
   const [mileage, setMileage] = useState("");
   const [vin, setVin] = useState("");
   const [img, setImg] = useState("");
-  const idUser = Cookies.get('user')
-  
+  const idUser = Cookies.get("user");
+
   const fileSelectedHandler = event => {
     setImg(event.target.files[0]);
-  }
+  };
 
   const sendDataCar = async e => {
     e.preventDefault();
-
+    console.log(props.model);
     const formData = new FormData();
 
     formData.append("imgCar", img);
@@ -32,10 +35,13 @@ function HookForm(props) {
       body: formData
     });
     const data = await response.json();
+    // props.getState("cars");
+    props.getCars(false);
   };
 
   return (
     <Form method="POST" onSubmit={sendDataCar}>
+      <DropDown />
       <Label for="mileage">Odometer</Label>
       <Input
         value={mileage}
@@ -70,7 +76,21 @@ function HookForm(props) {
 }
 
 const mapStateToProps = state => {
-  return { ...state.reducer };
+  return {
+    brand: state.chooseCar.brand,
+    model: state.reducer.model,
+    showContent: state.showContent
+  };
 };
 
-export default connect(mapStateToProps)(HookForm);
+const mapDispatchToProps = dispatch => {
+  return {
+    getState: state => dispatch(changeContent(state)),
+    getCars: state => dispatch(showCar(state))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HookForm);

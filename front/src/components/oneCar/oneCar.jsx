@@ -13,85 +13,80 @@ class OneCar extends React.Component {
     show: false
   };
 
-//   render() {
-//       return this.props.allCars.map((value, index) => (
-//         <div>
-//           {value.vin} Mileage: {value.mileage}
-//           <button
-//             onClick={() => this.props.deleteCars(value.id, Cookies.get("user"))}
-//           >
-//             X
-//           </button>
-//         </div>
-//       ));
-//     }
-
   render() {
     console.log(this.props.allCars);
     return (
-        <>
+      <>
         {this.props.allCars.map((value, index) => {
-            return (
-                <ReactCSSTransitionGroup
-                  transitionName="anim"
-                  transitionAppear={true}
-                  transitionAppearTimeout={5000}
-                  transitionEnter={true}
-                  transitionLeave={true}
+          return (
+            <ReactCSSTransitionGroup
+              transitionName="anim"
+              transitionAppear={true}
+              transitionAppearTimeout={5000}
+              transitionEnter={true}
+              transitionLeave={true}
+            >
+              <Row>
+                <Col
+                  className={`col-md-4 offset-md-4 ${
+                    this.props.greet
+                  }`}
                 >
-            <Row>
-              <Col className={`col-md-4 offset-md-4 ${this.props.greet}`}>
-                <Row>
-                  <Col className="col-md-4 ">
-                    <img
-                      src={value.imgCar}
-                      className="rounded mx-auto d-block car-img"
-                      alt=""
-                    />
-                  </Col>
-                  <Col className="col-md-8 text-center ">
-                    <div className="brand-model">
-                      <div
-                        className="delete"
+                  <Row>
+                    <Col className="col-md-4 ">
+                      <img
+                        src={value.imgCar}
+                        className="rounded mx-auto d-block car-img"
+                        alt={index}
+                      />
+                    </Col>
+                    <Col className="col-md-8 text-center ">
+                      <div className="brand-model">
+                        <div
+                          className="delete"
+                          onClick={() =>
+                            this.props.deleteCars(
+                              value.id,
+                              Cookies.get("user")
+                            )
+                          }
+                        >
+                          <p>
+                            <b>+</b>
+                          </p>
+                        </div>
+                        <h4 className="brand">{value.brand}</h4>
+                        <h4 className="model">{value.model}</h4>
+                      </div>
+                      <p>
+                        VIN: {value.vin} Mileage: {value.mileage}
+                      </p>
+                      <Button
+                        color="danger"
                         onClick={() =>
-                          this.props.deleteCars(value.id, Cookies.get("user"))
+                          this.state.show
+                            ? this.setState({ show: false })
+                            : this.setState({ show: true })
                         }
                       >
-                        <p>
-                          <b>+</b>
-                        </p>
-                      </div>
-                      <h4 className="brand">{value.brand}</h4>
-                      <h4 className="model">{value.model}</h4>
-                    </div>
-                    <p>
-                      VIN: {value.vin} Mileage: {value.mileage}
-                    </p>
-                    <Button
-                      color="danger"
-                      onClick={() =>
-                        this.state.show
-                          ? this.setState({ show: false })
-                          : this.setState({ show: true })
-                      }
-                    >
-                      Statistics
-                    </Button>
-                    <Button color="danger">Add</Button>
-                    <Button color="danger">Service interval</Button>
-                  </Col>
-                  <Row>
-                    <Col className="time-line">
-                      {this.state.show ? <TimeLine /> : null}
+                        Statistics
+                      </Button>
+                      <Button color="danger">Add</Button>
+                      <Button color="danger">Service interval</Button>
                     </Col>
+                    <Row>
+                      <Col className="time-line">
+                        {this.state.show ? <TimeLine /> : null}
+                      </Col>
+                    </Row>
                   </Row>
-                </Row>
-              </Col>
-            </Row>
-          </ReactCSSTransitionGroup>
+                </Col>
+              </Row>
+            </ReactCSSTransitionGroup>
           );
         })}
-        </>
+        
+      </>
     );
   }
 }

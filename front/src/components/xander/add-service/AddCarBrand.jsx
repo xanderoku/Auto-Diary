@@ -79,7 +79,7 @@ function AddCarBrand(props) {
 }
 
 const mapStateToProps = state => {
-  return { ...state.reducer };
+  return { ...state.reducer, cars: state.chooseCar };
 };
 
 export default connect(

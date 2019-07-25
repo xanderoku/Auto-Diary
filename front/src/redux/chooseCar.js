@@ -1,4 +1,4 @@
-export function chooseCar (state=false, action){
+export function chooseCar (state=[], action){
     switch (action.type){
         case 'CHOOSE_CAR':
             return action.payload;

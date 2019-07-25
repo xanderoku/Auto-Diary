@@ -88,3 +88,10 @@ export function deleteCar(car_id, user_id) {
            
          };
        }
+
+export function getModelBrand(value) {
+  return {
+    type: "GET_MODEL_BRAND",
+    payload: value
+  };
+}
