@@ -1,10 +1,11 @@
 import React from 'react';
 import { Table } from 'reactstrap';
 import './TableTest.css';
-
+import ChatApp from '../elene/chatbot/chatApp';
 export default class TableTest extends React.Component {
   render() {
     return (
+      <>
       <Table borderless style={{color: 'white'}}>
         <thead>
           <tr>
@@ -132,6 +133,8 @@ export default class TableTest extends React.Component {
           </tr>
         </tbody>
       </Table>
+      <ChatApp/>
+      </>
     );
   }
 }

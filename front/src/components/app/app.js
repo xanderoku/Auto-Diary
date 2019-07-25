@@ -9,7 +9,7 @@ import Profile from '../profile';
 import oneCar from '../oneCar/oneCar';
 import Regform from '../forms/RegForm';
 import Loginform from '../forms/LoginForm';
-
+import Btn from '../elene/push/Btn';
 import CarCard from '../xander/CarCard'
 import AddCarBrand from '../xander/add-service/AddCarBrand';
 
@@ -32,7 +32,7 @@ export default class App extends Component {
                         <Route path='/cars' component={Cars} />
                         <Route path='/test' component={CarCard} />
                         <Route path='/test2' component={AddCarBrand} />
-
+                        <Route path='/notify' component={Btn} />
                 </BrowserRouter>
         </>
     )

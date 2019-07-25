@@ -20,7 +20,8 @@ export default function App() {
     leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' },
   })
   return (
-    <div className="simple-trans-main" onClick={onClick}>
+    // <div className="simple-trans-main" onClick={onClick}>
+    <div>
       {transitions.map(({ item, props, key }) => {
         const Page = pages[item]
         return <Page key={key} style={props} />
