@@ -2,13 +2,17 @@ import React from 'react';
 import { Button, Row, Col } from 'reactstrap';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from "react-redux";
+import TimeLine from '../timeLine/TimeLine'
 import img from './vw.png';
 import  './onecar.css'
 
  class OneCar extends React.Component{
+    state = {
+        show : false
+    }
     render(){
         return(
-                <ReactCSSTransitionGroup transitionName="anim" transitionAppear={true} transitionAppearTimeout={5000} transitionEnter={false} transitionLeave={false}>
+                <ReactCSSTransitionGroup transitionName="anim" transitionAppear={true} transitionAppearTimeout={5000} transitionEnter={true} transitionLeave={true}>
             <Row>
                 <Col className={`col-md-4 offset-md-4 ${this.props.greet}`}>
                     <Row>
@@ -17,11 +21,22 @@ import  './onecar.css'
                     </Col>
                     <Col className="col-md-10 text-center ">
                         <h4>volkswagen </h4>
-                        <Button color="danger">statistic</Button>
+                        <Button color="danger" onClick ={() => this.state.show ?
+                         this.setState({show : false}) :
+                         this.setState({show : true})
+                         }>statistic</Button>
                         <Button color="danger">add</Button>
                         <Button color="danger">view</Button>
                     </Col>
+                    <Row>
+                        <Col className="time-line">
+                            {this.state.show ? 
+                            <TimeLine />
+                            : null}
+                        </Col>
                     </Row>
+                    </Row>
+
                 </Col>
             </Row>
                 </ReactCSSTransitionGroup>
