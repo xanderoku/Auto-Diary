@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Collapse,
   Navbar,
@@ -10,15 +10,18 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem
+} from "reactstrap";
+import Cookies from "js-cookie";
+import logo from './logo.png'
 
 export default class NavbarTwo extends React.Component {
   constructor(props) {
     super(props);
-
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      logged: Cookies.get('user')
     };
   }
   toggle() {
@@ -26,47 +29,58 @@ export default class NavbarTwo extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
   render() {
-    return (
-      <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Auto Diary</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/">Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/login/">Login</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/signup">Sign up</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/logout">Logout</NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Functions
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem href="/test">
-                    Services
-                  </DropdownItem>
-                  <DropdownItem>
-                    Test2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </div>
-    );
+    if (this.props.logged) {
+      return (
+        <div>
+          <Navbar dark expand="md">
+            <NavbarBrand href="/"><img style={{width: '60px', height: '60px'}} src={logo} alt="Auto Diary"/></NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <NavLink href="/">Home</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/logout">Logout</NavLink>
+                </NavItem>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    Functions
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem href="/test">Services</DropdownItem>
+                    <DropdownItem>Test2</DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+              </Nav>
+            </Collapse>
+          </Navbar>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Navbar color="light" light expand="md">
+            <NavbarBrand href="/">Auto Diary</NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <NavLink href="/">Home</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/login/">Login</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/signup">Sign up</NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Navbar>
+        </div>
+      );
+    }
   }
 }

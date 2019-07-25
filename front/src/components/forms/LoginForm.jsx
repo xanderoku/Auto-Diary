@@ -21,7 +21,6 @@ export default function RegForm(props) {
       .post(`/login`, { email, password})
       .then(res => {
         if (res.status === 200) {
-          // console.log('log form: ', res);
           props.history.push('/');
         } else {
           const error = new Error(res.error);
@@ -38,7 +37,6 @@ export default function RegForm(props) {
 
   return (
     <form style={{ marginTop: "20px", width: "25%" }}>
-      <h3 style={{ color: "white" }}>Login:</h3>
       <InputGroup>
         <InputGroupAddon addonType="prepend">@</InputGroupAddon>
         <Input type="email" placeholder="email" {...bindEmail} />
@@ -56,7 +54,7 @@ export default function RegForm(props) {
           borderColor: "#e50914"
         }}
       >
-        OK
+        Login
       </Button>
     </form>
   );

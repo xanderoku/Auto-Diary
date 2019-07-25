@@ -11,7 +11,7 @@ const User = require("../models/user");
 const router = express.Router();
 
 router.get("/", authNew, (req, res) => {
-  res.send("lol?");
+  res.sendStatus(200);
 });
 
 router.get("/checkToken", authNew, function(req, res) {
@@ -22,10 +22,8 @@ router
   .route("/signup")
   .get(authNew, (req, res) => {
     // res.send("get signup here!");
-    // console.log("get signup here!");
   })
   .post(async (req, res) => {
-    // console.log("reg post: ", req.body);
     const { email, password } = req.body;
     const user = new User({
       email,
