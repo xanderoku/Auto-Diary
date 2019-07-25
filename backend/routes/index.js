@@ -22,10 +22,8 @@ router
   .route("/signup")
   .get(authNew, (req, res) => {
     // res.send("get signup here!");
-    console.log("get signup here!");
   })
   .post(async (req, res) => {
-    console.log("reg post: ", req.body);
     const { email, password } = req.body;
     const user = new User({
       email,

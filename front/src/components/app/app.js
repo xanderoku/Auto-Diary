@@ -11,6 +11,7 @@ import Regform from "../forms/RegForm";
 import Loginform from "../forms/LoginForm";
 import Logout from "../forms/Logout";
 import withAuth from "./withAuth";
+import StartPage from "../start-page/StartPage2";
 
 import CarCard from "../xander/CarCard";
 import AddCarBrand from "../xander/add-service/AddCarBrand";
@@ -35,6 +36,7 @@ export default class App extends Component {
             <Route path="/cars" component={Cars} />
             <Route path="/test" component={CarCard} />
             <Route path="/test2" component={AddCarBrand} />
+            <Route path="/test3" component={StartPage} />
           </BrowserRouter>
         </>
       );
@@ -46,6 +48,7 @@ export default class App extends Component {
             <Route exact path="/" component={withAuth(Profile)} />
             <Route path="/signup" component={Regform} />
             <Route path="/login" component={Loginform} />
+            <Route path="/test3" component={StartPage} />
           </BrowserRouter>
         </>
       );

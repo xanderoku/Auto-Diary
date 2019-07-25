@@ -13,6 +13,7 @@ import {
   DropdownItem
 } from "reactstrap";
 import Cookies from "js-cookie";
+import logo from './logo.png'
 
 export default class NavbarTwo extends React.Component {
   constructor(props) {
@@ -29,19 +30,12 @@ export default class NavbarTwo extends React.Component {
     });
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.logged !== this.props.logged) {
-  //     return this.setState({logged: Cookies.get('user')})
-  //   }
-  // }
-
   render() {
-    // const loggedIn = Cookies.get("user");
     if (this.props.logged) {
       return (
         <div>
-          <Navbar color="light" light expand="md">
-            <NavbarBrand href="/">Auto Diary</NavbarBrand>
+          <Navbar dark expand="md">
+            <NavbarBrand href="/"><img style={{width: '60px', height: '60px'}} src={logo} alt="Auto Diary"/></NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>

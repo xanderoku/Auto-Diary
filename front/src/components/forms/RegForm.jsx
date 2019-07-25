@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { InputGroup, InputGroupAddon, Input, Button } from "reactstrap";
 import { useInput } from "./hooks/input-hook";
+import './forms.css';
 
 export default function RegForm(props) {
   const { value: email, bind: bindEmail, reset: resetEmail } = useInput("");
@@ -27,8 +28,7 @@ export default function RegForm(props) {
   };
 
   return (
-    <form style={{ marginTop: "20px", width: "25%" }}>
-      <h3 style={{ color: "white" }}>Sign up:</h3>
+    <form style={{ width: "25%" }}>
       <InputGroup>
         <InputGroupAddon addonType="prepend">@</InputGroupAddon>
         <Input type="email" placeholder="email" {...bindEmail} />
@@ -46,7 +46,7 @@ export default function RegForm(props) {
           borderColor: "#e50914"
         }}
       >
-        OK
+        Sign up
       </Button>
     </form>
   );
