@@ -1,16 +1,16 @@
-.maimBtn{
+.mainBtn{
     font-size: 80px;
+    font-weight: bold;
 }
-.maimBtn:hover{
+.mainBtn:hover{
     transform: rotate(90deg);
     transition: 1s;
 }
-.maimBtn A {
+.mainBtn a {
     color: red;
-    font-weight: bold;
     text-decoration: none;
 }
-.maimBtn A:hover {
+.mainBtn a:hover {
     color: red;
     transform: rotate(90deg);
     transition: 1s;
