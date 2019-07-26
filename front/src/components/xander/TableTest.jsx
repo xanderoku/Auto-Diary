@@ -5,10 +5,12 @@ import './TableTest.css';
 export default class TableTest extends React.Component {
   render() {
     return (
+      <>
+      <h2><b>Required services</b></h2>
       <Table borderless style={{color: 'white'}}>
         <thead>
           <tr>
-            <th>Service schedule:</th>
+            <th></th>
             <th>Type/km</th>
             <th>15000</th>
             <th>30000</th>
@@ -132,6 +134,7 @@ export default class TableTest extends React.Component {
           </tr>
         </tbody>
       </Table>
+      </>
     );
   }
 }

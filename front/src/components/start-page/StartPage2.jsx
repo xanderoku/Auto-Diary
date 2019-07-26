@@ -14,7 +14,8 @@ export default class StartPage2 extends Component {
           </video>
           <div id="videoMessageBox2">
             <div id="videoMessage2">
-              <h1 style= {{color: '#e50914'}}>Welcome to Auto Diary</h1>
+              <h1 style= {{color: '#e50914'}}><b>Welcome to Auto Diary</b></h1>
+              <h2>Our website helps drivers to plan and track car expenses and services</h2>
               <Regform />
             </div>
           </div>
