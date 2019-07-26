@@ -7,7 +7,6 @@ import Diary from "../dairy";
 import Statistics from "../statistics";
 import Profile from "../profile";
 import oneCar from "../oneCar/oneCar";
-import Regform from "../forms/RegForm";
 import Loginform from "../forms/LoginForm";
 import Logout from "../forms/Logout";
 import withAuth from "./withAuth";
@@ -37,8 +36,8 @@ export default class App extends Component {
             <Route path="/cars" component={Cars} />
             <Route path="/test" component={CarCard} />
             <Route path="/test2" component={AddCarBrand} />
-            <Route path="/test3" component={StartPage} />
             <Route exact path="/typeOfWork" component={TypeOfWork} />
+            <Route path="/start" component={StartPage} />
           </BrowserRouter>
         </>
       );
@@ -48,9 +47,8 @@ export default class App extends Component {
           <BrowserRouter>
             <Navbar />
             <Route exact path="/" component={withAuth(Profile)} />
-            <Route path="/signup" component={Regform} />
             <Route path="/login" component={Loginform} />
-            <Route path="/test3" component={StartPage} />
+            <Route path="/start" component={StartPage} />
           </BrowserRouter>
         </>
       );

@@ -13,7 +13,7 @@ import {
   DropdownItem
 } from "reactstrap";
 import Cookies from "js-cookie";
-import logo from './logo.png'
+import logo from "./logo.png";
 
 export default class NavbarTwo extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ export default class NavbarTwo extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
-      logged: Cookies.get('user')
+      logged: Cookies.get("user")
     };
   }
   toggle() {
@@ -33,15 +33,18 @@ export default class NavbarTwo extends React.Component {
   render() {
     if (this.props.logged) {
       return (
-        <div>
+        <div className="position-relative" style={{ zIndex: "2000" }}>
           <Navbar dark expand="md">
-            <NavbarBrand href="/"><img style={{width: '60px', height: '60px'}} src={logo} alt="Auto Diary"/></NavbarBrand>
+            <NavbarBrand href="/">
+              <img
+                style={{ width: "60px", height: "60px" }}
+                src={logo}
+                alt="Auto Diary"
+              />
+            </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
-                <NavItem>
-                  <NavLink href="/">Home</NavLink>
-                </NavItem>
                 <NavItem>
                   <NavLink href="/logout">Logout</NavLink>
                 </NavItem>
@@ -51,7 +54,7 @@ export default class NavbarTwo extends React.Component {
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem href="/test">Services</DropdownItem>
-                    <DropdownItem>Test2</DropdownItem>
+                    <DropdownItem href="/start">Start page</DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </Nav>
@@ -61,20 +64,26 @@ export default class NavbarTwo extends React.Component {
       );
     } else {
       return (
-        <div>
-          <Navbar color="light" light expand="md">
-            <NavbarBrand href="/">Auto Diary</NavbarBrand>
+        <div
+          className="position-relative"
+          style={{ zIndex: "2000", marginLeft: "10%", marginRight: "10%" }}
+        >
+          <Navbar dark expand="md">
+            <NavbarBrand href="/">
+              <img
+                style={{ width: "60px", height: "60px" }}
+                src={logo}
+                alt="Auto Diary"
+              />
+            </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="/">Home</NavLink>
-                </NavItem>
-                <NavItem>
                   <NavLink href="/login/">Login</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/signup">Sign up</NavLink>
+                  <NavLink href="/start">Sign up</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>

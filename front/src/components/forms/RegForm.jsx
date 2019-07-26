@@ -1,10 +1,11 @@
 import React from "react";
 import axios from "axios";
 import { InputGroup, InputGroupAddon, Input, Button } from "reactstrap";
+import { withRouter } from 'react-router';
 import { useInput } from "./hooks/input-hook";
 import './forms.css';
 
-export default function RegForm(props) {
+function RegForm(props) {
   const { value: email, bind: bindEmail, reset: resetEmail } = useInput("");
   const {
     value: password,
@@ -28,7 +29,7 @@ export default function RegForm(props) {
   };
 
   return (
-    <form style={{ width: "25%" }}>
+    <form style={{ width: '25%', margin: 'auto' }}>
       <InputGroup>
         <InputGroupAddon addonType="prepend">@</InputGroupAddon>
         <Input type="email" placeholder="email" {...bindEmail} />
@@ -51,3 +52,5 @@ export default function RegForm(props) {
     </form>
   );
 }
+
+export default withRouter(RegForm);

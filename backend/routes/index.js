@@ -35,8 +35,6 @@ router
       } else {
         res.status(200).send("Logged in to the Auto Diary!");
       }
-      // req.session.user = user.email;
-      // console.log(req.session.user);
     });
   });
 
@@ -70,7 +68,7 @@ router.post("/login", function(req, res) {
           });
           const userId = await User.findOne({ email });
           res.cookie("token", token, { httpOnly: true });
-          res.cookie("user" , userId.id);
+          res.cookie("user", userId.id);
           res.sendStatus(200);
           // res.cookie("token", token, { httpOnly: true }).sendStatus(200);
         }
