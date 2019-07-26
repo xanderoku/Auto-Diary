@@ -77,10 +77,20 @@ router.route("/deletecar")
     // console.log("cars that are after delete", restCars);
     res.json({ carAll });
   }) 
-  // catch (error) {
-  //   const carDeleted = false;
-  //   res.json({ carDeleted });
-  // }
-// });
+ 
+  router.route("/works").post(async (req, res) => {
+    console.log(req.body)
+    // try {
+    //   const carAll = await Car.find({
+    //     owner: req.body.user_id
+    //   });
+    //   // console.log("carAll: ", carAll);
+    //   const success = true;
+    //   res.json({ carAll, success });
+    // } catch (error) {
+    //   const success = false;
+    //   res.json({ success });
+    // }
+  });
 
 module.exports = router;

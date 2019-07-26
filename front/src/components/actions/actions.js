@@ -95,3 +95,10 @@ export function getModelBrand(value) {
     payload: value
   };
 }
+
+export function selectedCar(value) {
+  return {
+    type: "SELECTED_ID",
+    payload: value
+  };
+}
