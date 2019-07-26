@@ -34,7 +34,7 @@ export default class App extends Component {
             <Route path="/statistics" component={Statistics} />
             <Route path="/onecar" component={oneCar} />
             <Route path="/cars" component={Cars} />
-            <Route path="/test" component={CarCard} />
+            <Route path="/stats" component={CarCard} />
             <Route path="/test2" component={AddCarBrand} />
             <Route exact path="/typeOfWork" component={TypeOfWork} />
             <Route path="/start" component={StartPage} />

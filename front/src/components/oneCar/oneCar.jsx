@@ -79,13 +79,18 @@ class OneCar extends React.Component {
                       >
                         <Button
                           color="danger"
-                          onClick={() => this.props.selectedCar(value._id)}
+                          onClick={() =>
+                            this.props.selectedCar(value._id)
+                          }
                         >
                           Add works
                         </Button>
                       </Link>
-
-                      <Button color="danger">Service interval</Button>
+                      <Link to={"/stats"} activeClassName="active">
+                        <Button color="danger">
+                          Service interval
+                        </Button>
+                      </Link>
                     </Col>
                     <Row>
                       <Col className="time-line">
@@ -113,7 +118,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     deleteCars: (car_id, user_id) => dispatch(deleteCar(car_id, user_id)),
-    selectedCar: (value) => dispatch(selectedCar(value))
+    selectedCar: value => dispatch(selectedCar(value))
   };
 };
 

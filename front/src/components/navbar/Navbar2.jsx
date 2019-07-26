@@ -48,7 +48,7 @@ export default class NavbarTwo extends React.Component {
                 <NavItem>
                   <NavLink href="/logout">Logout</NavLink>
                 </NavItem>
-                <UncontrolledDropdown nav inNavbar>
+                {/* <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
                     Functions
                   </DropdownToggle>
@@ -56,7 +56,7 @@ export default class NavbarTwo extends React.Component {
                     <DropdownItem href="/test">Services</DropdownItem>
                     <DropdownItem href="/start">Start page</DropdownItem>
                   </DropdownMenu>
-                </UncontrolledDropdown>
+                </UncontrolledDropdown> */}
               </Nav>
             </Collapse>
           </Navbar>

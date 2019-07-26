@@ -31,11 +31,11 @@ class ModelDropdown extends React.Component {
               {item}
             </div>
           )}
-          value={this.state.value}
+          value={this.props.model}
           onChange={e => this.props.selectModel(e.target.value)}
           onSelect={this.props.selectModel}
         />
-        {console.log(this.state.value)}
+        {console.log("value of selected input", this.props.selectModel)}
       </>
     );
   }
@@ -47,7 +47,8 @@ const DivStyle = {
 
 const mapStateToProps = state => {
   return {
-    cars: state.chooseCar
+    cars: state.chooseCar,
+    model: state.reducer.model
   };
 }
 

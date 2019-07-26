@@ -28,20 +28,31 @@ const Tree = memo(({ children, name, style, defaultOpen = false }) => {
 const TimeLine = () => (
   <>
     <Global />
-    <Tree name="Растраты" defaultClose>
-      <Tree name="2019">
-      <Tree name="январь (2)" style={{ color: '#37ceff' }}>
-        <Tree name="Замена масла" style={{ color: '#37ceff' }} />
-        <Tree name="Очистка фар" style={{ color: '#37ceff' }} />
+    <Tree name="Expenses" defaultClose>
+      <Tree name="2018 (233$)">
+        <Tree name="October (1) (100$)" style={{ color: "#37ceff" }}>
+          <Tree name="Tires change (100$)" style={{ color: "#37ceff" }} />
+        </Tree>
+
+        <Tree name="November" style={{ color: "#37ceff" }} />
+
+        <Tree name="December (1) (133$)" style={{ color: "#37ceff" }}>
+          <Tree name="Antifreeze add (133$)" style={{ color: "#37ceff" }} />
+        </Tree>
       </Tree>
-      <Tree name="февраль" style={{ color: '#37ceff' }} />
-      <Tree name="март (1)" style={{ color: '#37ceff' }}>
-        <Tree name="Модернизация бордачка" style={{ color: '#37ceff' }} />
+      <Tree name="2019 (143$)">
+        <Tree name="January (2)(43$)" style={{ color: "#37ceff" }}>
+          <Tree name="Engine oil change (23$)" style={{ color: "#37ceff" }} />
+          <Tree name="Headlamps cleaning (20$)" style={{ color: "#37ceff" }} />
+        </Tree>
+        <Tree name="February" style={{ color: "#37ceff" }} />
+        <Tree name="March (1) (100$)" style={{ color: "#37ceff" }}>
+          <Tree name="Chassis tuning (100$)" style={{ color: "#37ceff" }} />
+        </Tree>
+        <Tree name="April" style={{ color: "#37ceff" }} />
+        <Tree name="May" style={{ color: "#37ceff" }} />
       </Tree>
-      <Tree name="апрель" style={{ color: '#37ceff' }} />
-      <Tree name="май" style={{ color: '#37ceff' }} />
-      </ Tree>
     </Tree>
   </>
-)
+);
 export default TimeLine;
