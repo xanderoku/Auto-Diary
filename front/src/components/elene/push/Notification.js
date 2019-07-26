@@ -38,7 +38,7 @@ const Notification = ({ notification }) => {
                         kind={'success'}
                         subtitle={'You clicked me.'}
                         hideCloseButton
-                        caption={new Date().toString()}
+                        caption={this.props.mileage}
                     />
                 </div>
             )}

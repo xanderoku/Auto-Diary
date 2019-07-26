@@ -6,10 +6,10 @@ import Diary from '../dairy';
 import Statistics from '../statistics';
 import Profile from '../profile';
 import oneCar from '../oneCar/oneCar';
-import Regform from '../forms/RegForm';
-import Loginform from '../forms/LoginForm';
+import Regform from '../elene/forms/RegForm';
+import Loginform from '../elene/forms/LoginForm';
 import Btn from '../elene/push/Btn';
-import Logout from '../forms/Logout';
+import Logout from '../elene/forms/Logout';
 import withAuth from './withAuth';
 
 import CarCard from '../xander/CarCard'
@@ -24,6 +24,7 @@ export default class App extends Component {
       <>
         <BrowserRouter>
           <Navbar />
+          <Btn />
           <Route exact path="/" component={withAuth(Profile)} />
           <Route exact path="/signup" component={Regform} />
           <Route path="/login" component={Loginform} />

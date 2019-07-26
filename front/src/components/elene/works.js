@@ -1,6 +1,7 @@
- [
-    {
-        "15000": {
+export default 
+   [ {
+        "five": {
+            "m": 15000,
             "Engine oil": "change",
             "Cabin air filter": "change",
             "Brake fluid": null,
@@ -88,5 +89,4 @@
             "Transmission fluid": null,
             "Transmission belt": "check"
         }
-    }
-]
+    }]
