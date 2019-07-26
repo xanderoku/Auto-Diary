@@ -2,6 +2,7 @@ const express = require("express");
 // const { sessionChecker } = require("../middleware/auth");
 const Car = require("../models/car");
 const multer = require("multer");
+const Work = require('../models/work')
 
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
@@ -74,23 +75,36 @@ router.route("/deletecar")
     });
     const carAll = await Car.find({ owner: req.body.user_id });
     const carDeleted = true;
-    // console.log("cars that are after delete", restCars);
     res.json({ carAll });
   }) 
  
   router.route("/works").post(async (req, res) => {
     console.log(req.body)
-    // try {
-    //   const carAll = await Car.find({
-    //     owner: req.body.user_id
-    //   });
-    //   // console.log("carAll: ", carAll);
-    //   const success = true;
-    //   res.json({ carAll, success });
-    // } catch (error) {
-    //   const success = false;
-    //   res.json({ success });
-    // }
+    
+  try {
+    if(req.body.service === ""){
+    const work = await Work.create({
+    
+      service: req.body.oftenService,
+      mileage: req.body.mileage,
+      price: req.body.price,
+      car_id: req.body.car_id
+    });
+  } else {
+    const work = await Work.create({
+      service: req.body.service,
+      
+      mileage: req.body.mileage,
+      price: req.body.price,
+      car_id: req.body.car_id
+    });
+  }
+    const workAdded = true;
+    res.json({ work, workAdded });
+  } catch (error) {
+    const success = false;
+    res.json({ success });
+  }
   });
 
 module.exports = router;
