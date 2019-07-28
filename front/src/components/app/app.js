@@ -11,6 +11,7 @@ import Loginform from "../forms/LoginForm";
 import Logout from "../forms/Logout";
 import withAuth from "./withAuth";
 import StartPage from "../start-page/StartPage2";
+import TypeOfWork from '../typeOfWork/typeOfWork'
 
 import CarCard from "../xander/CarCard";
 import AddCarBrand from "../xander/add-service/AddCarBrand";
@@ -26,15 +27,16 @@ export default class App extends Component {
       return (
         <>
           <BrowserRouter>
-            <Navbar logged={Cookies.get('user')} />
+            <Navbar logged={Cookies.get("user")} />
             <Route exact path="/" component={withAuth(Profile)} />
             <Route path="/logout" component={Logout} />
             <Route path="/diary" component={Diary} />
             <Route path="/statistics" component={Statistics} />
             <Route path="/onecar" component={oneCar} />
             <Route path="/cars" component={Cars} />
-            <Route path="/test" component={CarCard} />
+            <Route path="/stats" component={CarCard} />
             <Route path="/test2" component={AddCarBrand} />
+            <Route exact path="/typeOfWork" component={TypeOfWork} />
             <Route path="/start" component={StartPage} />
           </BrowserRouter>
         </>

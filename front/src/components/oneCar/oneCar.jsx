@@ -5,8 +5,9 @@ import { connect } from "react-redux";
 import TimeLine from "../timeLine/TimeLine";
 import img from "./vw.png";
 import "./onecar.css";
-import { deleteCar } from "../actions/actions";
+import { deleteCar, selectedCar } from "../actions/actions";
 import Cookies from "js-cookie";
+import { Link } from "react-router-dom";
 
 class OneCar extends React.Component {
   state = {
@@ -71,8 +72,25 @@ class OneCar extends React.Component {
                       >
                         Statistics
                       </Button>
-                      <Button color="danger">Add</Button>
-                      <Button color="danger">Service interval</Button>
+
+                      <Link
+                        to={"/typeOfWork"}
+                        activeClassName="active"
+                      >
+                        <Button
+                          color="danger"
+                          onClick={() =>
+                            this.props.selectedCar(value._id)
+                          }
+                        >
+                          Add works
+                        </Button>
+                      </Link>
+                      <Link to={"/stats"} activeClassName="active">
+                        <Button color="danger">
+                          Service interval
+                        </Button>
+                      </Link>
                     </Col>
                     <Row>
                       <Col className="time-line">
@@ -85,7 +103,6 @@ class OneCar extends React.Component {
             </ReactCSSTransitionGroup>
           );
         })}
-        
       </>
     );
   }
@@ -100,7 +117,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    deleteCars: (car_id, user_id) => dispatch(deleteCar(car_id, user_id))
+    deleteCars: (car_id, user_id) => dispatch(deleteCar(car_id, user_id)),
+    selectedCar: value => dispatch(selectedCar(value))
   };
 };
 
