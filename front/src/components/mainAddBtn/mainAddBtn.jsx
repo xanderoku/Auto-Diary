@@ -1,37 +1,56 @@
 import React from 'react';
 import { Row, Col } from 'reactstrap';
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
-// import AddCar from '../addCar/AddCar'
-import { showCar } from '../actions/actions' 
+import { showCar } from '../actions/actions';
 import './btn.css';
-import AddCarBrand from '../xander/add-service/AddCarBrand'
+import CarChoice from '../carChoise/CarChoise';
+import HookForm from '../hookForm/hookForm';
 
 class MainAddBtn extends React.Component {
     state={
-        show:false
+        show:false,
     }
     render(){
-        return(
-            <div>
+        return (
+          <div>
             <Row>
-                <Col md={{size:1, offset:6}} className='text-center maimBtn'>
-                        <a href="#iakori" name="iakori" onClick ={() => this.state.show ?
-                             (this.setState({show:false}), this.props.getState('oneCarMain')):
-                              (this.setState({show:true}), this.props.getState('oneCarMain1'))}>
-                         + 
-                        </a>
-                </Col>
+              <Col
+                md={{ size: 1, offset: 6 }}
+                className="text-center mainBtn"
+              >
+                <a
+                  href="#iakori"
+                  name="iakori"
+                  onClick={() =>
+                    this.state.show
+                      ? (this.setState({ show: false }),
+                        this.props.getState("oneCarMain"))
+                      : (this.setState({ show: true }),
+                        this.props.getState("oneCarMain1"))
+                  }
+                >
+                  +
+                </a>
+              </Col>
             </Row>
-                {this.state.show ? <AddCarBrand /> : null}
-            </div>
-        )
+            {this.props.showContent === "cars" && this.state.show ? (
+              <CarChoice />
+            ) : null}
+            {this.props.showContent === "form" ? <HookForm /> : null}
+          </div>
+        );
     }
 } 
-const mapDispatchToProps = dispatch => {
+
+const mapStateToProps = (state) => {
     return {
-        // showText: text => dispatch(onSayHello(text))
-        getState: state => dispatch(showCar(state))
+        showContent: state.showContent
     };
   };
-export default connect(null, mapDispatchToProps)(MainAddBtn);
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getState: state => dispatch(showCar(state)),
+    };
+  };
+export default connect(mapStateToProps, mapDispatchToProps)(MainAddBtn);

@@ -17,6 +17,10 @@ const reducer = (state = initialState, action) => {
         return { loading: true };
       case "FETCH_RCVD":
         return { loading: false, text: action.payload };
+      case "GET_MODEL_BRAND":
+        return { ...state, model: action.payload };
+      case "SELECTED_ID":
+        return { ...state, id: action.payload };
       default:
         return state;
     }

@@ -1,84 +1,89 @@
-const express = require('express');
-const { sessionChecker } = require('../middleware/auth');
-const User = require('../models/users');
+const express = require("express");
+const jwt = require("jsonwebtoken");
 
+const secret = process.env.SECRET;
+
+// const { sessionChecker } = require("../middleware/auth");
+const authNew = require("../middleware/authNew");
+
+const User = require("../models/user");
 
 const router = express.Router();
-// route for Home-Page
-router.get('/', sessionChecker, (req, res) => {
-  res.redirect('/login');
+
+router.get("/", authNew, (req, res) => {
+  res.sendStatus(200);
 });
 
-// route for user signup
-router.route('/signup')
-  .get(sessionChecker, (req, res) => {
-    res.render('signup');
+router.get("/checkToken", authNew, function(req, res) {
+  res.sendStatus(200);
+});
+
+router
+  .route("/signup")
+  .get(authNew, (req, res) => {
+    // res.send("get signup here!");
   })
   .post(async (req, res) => {
-    try {
-      const user = new User({
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password
-      })
-      await user.save();
-      req.session.user = user;
-      res.redirect('/dashboard');
-    }
-    catch (error) {
-      res.redirect('/signup');
-    };
+    const { email, password } = req.body;
+    const user = new User({
+      email,
+      password
+    });
+    await user.save(err => {
+      if (err) {
+        res.status(500).send("Error signing up, please try again.");
+      } else {
+        res.status(200).send("Logged in to the Auto Diary!");
+      }
+    });
   });
 
-
-// route for user Login
-router.route('/login')
-  .get(sessionChecker, (req, res) => {
-    res.render('login');
-  })
-  .post(async (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
-
-    const user = await User.findOne({ username });
-    if (!user) {
-      res.redirect('/login');
-      // } else if (!user.validPassword(password)) {
-    } else if (user.password !== password) {
-      res.redirect('/login');
+router.post("/login", function(req, res) {
+  const { email, password } = req.body;
+  User.findOne({ email }, function(err, user) {
+    if (err) {
+      console.error(err);
+      res.status(500).json({
+        error: "Internal error please try again"
+      });
+    } else if (!user) {
+      res.status(401).json({
+        error: "Incorrect email or password"
+      });
     } else {
-      req.session.user = user;
-      res.redirect('/dashboard');
+      user.isCorrectPassword(password, async function(err, same) {
+        if (err) {
+          res.status(500).json({
+            error: "Internal error please try again"
+          });
+        } else if (!same) {
+          res.status(401).json({
+            error: "Incorrect email or password"
+          });
+        } else {
+          const payload = { email };
+          const isAuth = true;
+          const token = jwt.sign(payload, secret, {
+            expiresIn: "1h"
+          });
+          const userId = await User.findOne({ email });
+          res.cookie("token", token, { httpOnly: true });
+          res.cookie("user", userId.id);
+          res.sendStatus(200);
+          // res.cookie("token", token, { httpOnly: true }).sendStatus(200);
+        }
+      });
     }
-
   });
-
-
-// route for user's dashboard
-router.get('/dashboard', (req, res) => {
-  if (req.session.user && req.cookies.user_sid) {
-    res.render('dashboard');
-  } else {
-    res.redirect('/login');
-  }
 });
 
-
-// route for user logout
-router.get('/logout', async (req, res, next) => {
-  if (req.session.user && req.cookies.user_sid) {
-    try {
-      // res.clearCookie('user_sid');
-      await req.session.destroy();
-      res.redirect('/');
-    }
-    catch (error) {
-      next(error);
-    }
-  } else {
-    res.redirect('/login');
+router.get("/logout", (req, res, next) => {
+  try {
+    res.clearCookie("token");
+    // await req.session.destroy();
+  } catch (error) {
+    next(error);
   }
 });
-
 
 module.exports = router;

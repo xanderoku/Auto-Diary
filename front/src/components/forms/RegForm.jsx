@@ -1,25 +1,56 @@
-import React from 'react';
-import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
+import React from "react";
+import axios from "axios";
+import { InputGroup, InputGroupAddon, Input, Button } from "reactstrap";
+import { withRouter } from 'react-router';
+import { useInput } from "./hooks/input-hook";
+import './forms.css';
 
-const Regform = (props) => {
+function RegForm(props) {
+  const { value: email, bind: bindEmail, reset: resetEmail } = useInput("");
+  const {
+    value: password,
+    bind: bindPassword,
+    reset: resetPassword
+  } = useInput("");
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    axios.post(`/signup`, { email, password }).then(res => {
+      if (res.status === 200) {
+        axios.post("/login", { email, password }).then(res => {
+          if (res.status === 200) {
+            props.history.push("/");
+          }
+        });
+      }
+    });
+    resetEmail();
+    resetPassword();
+  };
+
   return (
-    <div style={{marginTop: '20px', width: '25%'}}>
-        <h3 style={{color: 'white'}}>Sign up:</h3>
-      <InputGroup>
-        <InputGroupAddon addonType="prepend">A</InputGroupAddon>
-        <Input type="text" placeholder="username" />
-      </InputGroup>
+    <form style={{ width: '25%', margin: 'auto' }}>
       <InputGroup>
         <InputGroupAddon addonType="prepend">@</InputGroupAddon>
-        <Input type="email" placeholder="email" />
+        <Input type="email" placeholder="email" {...bindEmail} />
       </InputGroup>
       <InputGroup>
-        <InputGroupAddon addonType="prepend">#</InputGroupAddon>
-        <Input placeholder="password" />
+        <InputGroupAddon addonType="prepend">%</InputGroupAddon>
+        <Input type="password" placeholder="password" {...bindPassword} />
       </InputGroup>
-      
-    </div>
+      <Button
+        onClick={handleSubmit}
+        block
+        style={{
+          marginTop: "5px",
+          backgroundColor: "#e50914",
+          borderColor: "#e50914"
+        }}
+      >
+        Sign up
+      </Button>
+    </form>
   );
-};
+}
 
-export default Regform;
+export default withRouter(RegForm);

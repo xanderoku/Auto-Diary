@@ -1,0 +1,12 @@
+.form-control:focus{
+    border-color: slategrey !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline: slategray !important;
+}
+
+#log-div {
+    background-image: url('./bg-service.jpg');
+    background-size: cover;
+    border: 2px solid black;
+  }

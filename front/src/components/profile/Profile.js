@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
-// import Cars from '../cars';
-import OneCar from '../oneCar/oneCar'
-import MainAddBtn from '../mainAddBtn/mainAddBtn'
-
+import React, { Component } from "react";
+import MainAddBtn from "../mainAddBtn/mainAddBtn";
+import AllCar from "../allCar/allCar";
 
 export default class Profile extends Component {
-    render() {
-        return (
-          <>
-            <OneCar />
-            <OneCar />
-            <OneCar />
-            <MainAddBtn />
-          </>
-        );
-    }
+  
+ 
+  render() {
+    return (
+      <>
+        <AllCar />
+       
+        {/* <MainAddBtn /> */}
+      </>
+    );
+  } 
 }
+
+

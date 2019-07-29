@@ -1,0 +1,37 @@
+@media only screen and (min-width : 992px) {
+#video2{display:block;}
+
+}
+#videoDiv2 {width: 100%; margin:auto; display:block;position: relative;}
+#video2{width: 100%; }
+#videoMessage2 {padding:0.4em;}
+#videoMessage2 {text-shadow: 2px 2px 2px #000000;color:white;z-index:99 }
+#videoMessage2 h1{font-size: 2em;text-align:center;margin: 0.25em;}
+#videoMessage2 h2{font-size: 1.5em;color:#ffffff;text-align:center;margin: 0.25em;}
+#videoMessage2 h3{font-size: 1.3em;color:#ffffff;text-align:center;margin: 0.25em;}
+
+#videoMessageBox2 {
+    position: absolute;  top: 0;  left: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    height:100%;
+}
+
+#videoMessage2 {
+     -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%;
+}

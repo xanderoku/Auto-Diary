@@ -1,0 +1,39 @@
+.body-car {
+    background-color: red;
+
+}
+
+.chassis {
+    background-color: green;
+
+}
+
+.engine {
+    background-color: yellowgreen;
+
+}
+
+.other {
+    background-color: blue;    
+}
+
+.main-category {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+
+.form-type-work {
+    width: 40%;
+    margin: 0 auto;
+    color:White;
+    margin-top: 5%;
+}
+
+.form-type-work button{
+    position: float;
+    right: 0;
+}
