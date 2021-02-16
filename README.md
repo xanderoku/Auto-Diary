@@ -30,4 +30,4 @@ npm start
 
 <b><h3>Technologies:</h3><hr></hr></b>
 
-Node.js, React, Express.js, MongoDB, Mongoose, JWT, Babel, Reactstrap, React-spring
+Node.js, React, Redux, Express.js, MongoDB, Mongoose, JWT, Babel, Reactstrap, React-spring
